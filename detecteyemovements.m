@@ -269,7 +269,6 @@ fprintf('\nComputing adaptive velocity thresholds...')
 %     fprintf('\n-- These intervals (%.2f%% of data) will be ignored when computing velocity thresholds.',(sum(badvector)/length(badvector(:))*100))
 % end
 for e=1:nepochs
-    e
     ix_goodET = ~badvector(:,:,e); % get index of non-bad ET samples
     if ldata
         l = EEG.data([left_eye_xy(1) left_eye_xy(2)],ix_goodET,e)';
@@ -409,9 +408,9 @@ for e=1:nepochs
     if ~isempty(sac)
         ix_fakesac = find(ismember(sac(:,1),badETsmp) | ismember(sac(:,2),badETsmp));
         sac(ix_fakesac,:) = [];
-        if ~isempty(ix_fakesac)
-            fprintf('\n\n-- Removed %i saccades that occured during "bad_ET" intervals',length(ix_fakesac))
-        end
+    %         if ~isempty(ix_fakesac)
+    %             fprintf('\n\n-- Removed %i saccades that occured during "bad_ET" intervals',length(ix_fakesac))
+    %         end
     end
        
     %% get fixations
@@ -510,9 +509,9 @@ for e=1:nepochs
         end
         % remove fixations overlapping with "bad_ET" intervals
         fix(badfix,:) = [];
-        if any(badfix)
-            fprintf('\n-- Removed %i fixations that overlapped with "bad_ET" intervals',sum(badfix))
-        end
+        %         if any(badfix)
+        %             fprintf('\n-- Removed %i fixations that overlapped with "bad_ET" intervals',sum(badfix))
+        %         end
     end
       
     % slow, but simple:
