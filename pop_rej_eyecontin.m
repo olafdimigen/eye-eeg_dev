@@ -85,7 +85,7 @@
 % along with this program; if not, write to the Free Software
 % Foundation, 51 Franklin Street, Boston, MA 02110-1301, USA
 
-function [EEG, com] = pop_rej_eyecontin(EEG,chans,minvals,maxvals,windowsize)
+function [EEG, com] = pop_rej_eyecontin(EEG,chans,minvals,maxvals,windowsize,rejectionmethod)
 
 com = '';
 
@@ -100,7 +100,7 @@ if isempty(EEG.data)
 end
 
 try
-    if nargin < 5       
+    if nargin < 6       
         % pop up dialogue
         [chans minvals maxvals windowsize rejectionmethod] = dlg_rej_eyecontin(mfilename,EEG);
     end
