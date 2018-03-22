@@ -187,7 +187,8 @@ else
             % add duration of bad interval (in samples)
             seq_bad(:,3) = seq_bad(:,2)-seq_bad(:,1) + 1;
             % add bad ET markers
-            EEG = addevents(EEG,[seq_bad(:,1) seq_bad(:,3)],{'latency','duration'},'bad_ET');
+            EEG = addevents(EEG,[seq_bad(:,1) seq_bad(:,3)],{'latency','duration'},'bad_ET_start');
+            EEG = addevents(EEG,[seq_bad(:,2) ones(size(seq_bad,1),1)],{'latency','duration'},'bad_ET_stop');
             
         otherwise
             error('%s(): rejection method input not recognized',mfilename)
