@@ -100,7 +100,7 @@ if isempty(EEG.data)
 end
 
 try
-    if nargin < 6       
+    if nargin < 6
         % pop up dialogue
         [chans minvals maxvals windowsize rejectionmethod] = dlg_rej_eyecontin(mfilename,EEG);
     end
