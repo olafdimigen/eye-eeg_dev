@@ -10,11 +10,11 @@
 %   oculomotor research, or computing fixation-related potentials (FRPs).
 %
 %   EYE-EEG was developed by Olaf Dimigen and Ulrich Reinacher at 
-%   Humboldt University at Berlin, Germany, 2009-2017
+%   Humboldt University at Berlin, Germany, 2009-2018
 %
 %   >> web: http://www2.hu-berlin.de/eyetracking-eeg
 %
-%   Copyright (C): Olaf Dimigen & Ulrich Reinacher, 2009-2017
+%   Copyright (C): Olaf Dimigen & Ulrich Reinacher, 2009-2018
 %   User feedback welcome: email: olaf.dimigen@hu-berlin.de
 %
 %   Project made possible by a grant from Deutsche Forschungsgemeinschaft

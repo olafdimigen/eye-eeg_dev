@@ -6,7 +6,7 @@
 %                   n_eegsmp, doRegression, filterEyetrack, plotFig)
 %
 % Authors: ur & od
-% Copyright (C) 2009-2017 Olaf Dimigen & Ulrich Reinacher, HU Berlin
+% Copyright (C) 2009-2018 Olaf Dimigen & Ulrich Reinacher, HU Berlin
 % olaf.dimigen@hu-berlin.de
 
 % This program is free software; you can redistribute it and/or modify
@@ -281,7 +281,7 @@ if isfield(ET,'eyeevent')
     clear new_* n_events inRange
 end
 
-%% update timestamp of 'other' ET messages (new in Jan-2017, OD)
+%% update timestamp of 'other' ET messages (new in Jan-2018, OD)
 % = all messages starting with 'MSG', which are *not* keyword messages
 % (used for synchronization) and *not* eyeevents (e.g. saccades).
 if isfield(ET,'othermessages')
