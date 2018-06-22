@@ -69,10 +69,12 @@ ix_endeventSample   = find(ET.data(:,1) == endeventTime);
 % Therefore, we need to search for the data sample that is closest to the
 % input
 if isempty(ix_starteventSample)
-    [ix_starteventSample, dummy] = searchclosest(ET.data(:,1),starteventTime);
+    %[ix_starteventSample, dummy] = searchclosest(ET.data(:,1),starteventTime);
+    [ix_starteventSample] = nearestpoint(starteventTime,ET.data(:,1));
 end
 if isempty(ix_endeventSample)
-    [ix_endeventSample, dummy] = searchclosest(ET.data(:,1),endeventTime);
+    %[ix_endeventSample, dummy] = searchclosest(ET.data(:,1),endeventTime);
+    [ix_endeventSample] = nearestpoint(endeventTime,ET.data(:,1));
 end
 n_etsmp_range = length(ix_starteventSample:ix_endeventSample);
 eyerate = (n_etsmp_range / n_eegsmp_range) * eegrate; % estimated ET rate
@@ -108,10 +110,12 @@ end
 ET.newtime = linspace(starteventTime, endeventTime, n_eegsmp_range)';
 
 %% for each existing ET event, search for closest timestamp in new time
-new_ix = zeros(length(ET.event),1);
-for k = ix_startevent:ix_endevent
-    new_ix(k) = searchclosest(ET.newtime,ET.event(k,1));
-end
+% new_ix = zeros(length(ET.event),1);
+% for k = ix_startevent:ix_endevent
+%     new_ix(k) = searchclosest(ET.newtime,ET.event(k,1));
+% end
+new_ix = nearestpoint(ET.event(ix_startevent:ix_endevent,1),ET.newtime);
+
 ET.event(:,3) = new_ix; % assign updated sample index to ET events
 
 %% identify "shared" events in ET & EEG
@@ -281,7 +285,7 @@ if isfield(ET,'eyeevent')
     clear new_* n_events inRange
 end
 
-%% update timestamp of 'other' ET messages (new in Jan-2018, OD)
+%% update timestamp of 'other' ET messages (new in Jan-2017, OD)
 % = all messages starting with 'MSG', which are *not* keyword messages
 % (used for synchronization) and *not* eyeevents (e.g. saccades).
 if isfield(ET,'othermessages')
