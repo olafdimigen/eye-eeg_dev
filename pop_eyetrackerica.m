@@ -49,7 +49,7 @@
 %
 % Outputs:
 %   EEG       - EEG structure with updated field EEG.reject.gcompreject. 
-%               If rejectmode 1 or 2 was used, EEG.reject.gcompreject will 
+%               If flagmode 2 or 3 was used, EEG.reject.gcompreject will 
 %               contain updated flags flagging components with a variance
 %               ratio larger than threshratio 
 %  vartable   - [matrix of size ncomp x 3]
@@ -103,7 +103,7 @@
 % Neuroscience, doi: 10.3389/fnhum.2012.00278.
 %
 % Author: od
-% Copyright (C) 2009-2018 Olaf Dimigen & Ulrich Reinacher, HU Berlin
+% Copyright (C) 2009-2017 Olaf Dimigen & Ulrich Reinacher, HU Berlin
 % olaf.dimigen@hu-berlin.de 
 
 % This program is free software; you can redistribute it and/or modify
