@@ -57,6 +57,7 @@ if isempty(results)
     return
 end
 
+
 %% collect dialogue inputs
 rate_event = outstruct.rate_event;
 
